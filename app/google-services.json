@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "276739318253",
+    "project_id": "gomara-609e8",
+    "storage_bucket": "gomara-609e8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:276739318253:android:475040c4ee3d8da24ec7e4",
+        "android_client_info": {
+          "package_name": "com.digrutt.preseptorgomara"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "276739318253-iq9ou4o8d0lj51lvgbj7l0lnqf7gq842.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCEpbU7ehrYyDxma_255IzQXUXbBdrlcaE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "276739318253-iq9ou4o8d0lj51lvgbj7l0lnqf7gq842.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
