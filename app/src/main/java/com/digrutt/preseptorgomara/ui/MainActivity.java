@@ -1,8 +1,10 @@
-package com.digrutt.preseptorgomara;
+package com.digrutt.preseptorgomara.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.digrutt.preseptorgomara.R;
 
 public class MainActivity extends AppCompatActivity {
 
