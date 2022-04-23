@@ -1,3 +1,24 @@
 <resources>
     <string name="app_name">PreseptorGomara</string>
+
+    <string-array name="anio">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+    </string-array>
+
+    <string-array name="curso">
+        <item>a</item>
+        <item>b</item>
+        <item>c</item>
+        <item>d</item>
+    </string-array>
+
+    <string name="txt_preseptor_TurnoManiana">Turno Mañana</string>
+    <string name="txt_preseptor_TurnoTarde">Turno Tarde</string>
+    <string name="bt_preseptor_Guardar">Guardar</string>
+
 </resources>

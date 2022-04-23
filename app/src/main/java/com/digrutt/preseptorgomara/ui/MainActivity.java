@@ -55,6 +55,24 @@ public class MainActivity extends AppCompatActivity {
                 obtenerInasistencias(doc,cur);
             }
         });
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        DocumentReference docRef = db.collection("cities").document("SF");
+        docRef.addSnapshotListener(new EventListener<DocumentSnapshot>() {
+            @Override
+            public void onEvent(@Nullable DocumentSnapshot snapshot,
+                                @Nullable FirebaseFirestoreException e) {
+                if (e != null) {
+                    Log.w("TAG", "Listen failed.", e);
+                    return;
+                }
+
+                if (snapshot != null && snapshot.exists()) {
+                    Log.d("TAG", "Current data: " + snapshot.getData());
+                } else {
+                    Log.d("TAG", "Current data: null");
+                }
+            }
+        });
     }
 
     public void obtenerInasistencias(String id,String curso){
