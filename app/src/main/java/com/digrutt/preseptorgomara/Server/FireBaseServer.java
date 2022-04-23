@@ -1,9 +1,11 @@
 package com.digrutt.preseptorgomara.Server;
 
 import android.util.Log;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 
+import com.digrutt.preseptorgomara.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -30,6 +32,7 @@ public class FireBaseServer {
 
     private static final String TAG = "FireBaseServer";
     private static FirebaseFirestore db = FirebaseFirestore.getInstance();
+    String nombre = "";
 
     public void ObtenerBaseDeDatos(String curso){
         db.collection("Cursos/" + curso +"/Alumnos")
@@ -95,52 +98,5 @@ public class FireBaseServer {
             }
         });
     }
-
-    /*
-    public String obtenerNombre(String id,String curso){
-        DocumentReference reference = db.collection("Cursos/" + curso + "/Alumnos").document(id);
-        String[] nombre = new String[1];
-        reference
-                .get()
-                .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                        if (task.isSuccessful()){
-                            DocumentSnapshot documentSnapshot = task.getResult();
-                            if(documentSnapshot.exists()){
-                                String result = String.valueOf(documentSnapshot.getData().get("Nombre"));
-                                nombre[0] = result;
-                            }
-                        }else Log.d(TAG, "get failed with ", task.getException());
-
-                    }
-                });
-        return nombre[0];
-    }*/
-
-    //FALTARIA OBTENER: solamente la inasistencias y el nombre
-    /*
-    public float obtenerInasistencias(String id){
-        DocumentReference reference = db.collection("Cursos/" + curso + "/Alumnos").document(id);
-        float[] nombre = new Float[1];
-        reference
-                .get()
-                .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                        if (task.isSuccessful()){
-                            DocumentSnapshot documentSnapshot = task.getResult();
-                            if(documentSnapshot.exists()){
-                                String result = String.valueOf(documentSnapshot.getData().get("Inasistencias"));
-                                nombre[0] = result;
-                            }
-                        }else Log.d(TAG, "get failed with ", task.getException());
-
-                    }
-                });
-        return nombre[0];
-    }
-    */
-
 
 }
