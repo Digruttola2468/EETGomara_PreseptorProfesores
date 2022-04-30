@@ -10,13 +10,20 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import com.digrutt.preseptorgomara.Adapter.RecyclerAdapter;
 import com.digrutt.preseptorgomara.R;
+
+import java.util.ArrayList;
 
 public class activity_preseptor extends Activity implements AdapterView.OnItemSelectedListener {
 
     private Button btGuardar;
     private Spinner spCurso, spAnio;
+
+    private RecyclerView recyclerManiana;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -26,6 +33,7 @@ public class activity_preseptor extends Activity implements AdapterView.OnItemSe
         btGuardar = findViewById(R.id.bt_GuardarAsistencias);
         spCurso = findViewById(R.id.sp_curso);
         spAnio = findViewById(R.id.sp_anio);
+        recyclerManiana = findViewById(R.id.recyclerTurnoManiana);
 
         //Mostrar la lista de Cursos y años
         ArrayAdapter<CharSequence> adapterCurso = ArrayAdapter.createFromResource(this,
@@ -44,6 +52,18 @@ public class activity_preseptor extends Activity implements AdapterView.OnItemSe
 
         spAnio.setOnItemSelectedListener(this);
         spCurso.setOnItemSelectedListener(this);
+
+
+        recyclerManiana.setLayoutManager(new LinearLayoutManager(this));
+
+        ArrayList<String> listDatos = new ArrayList<>();
+        listDatos.add("Ivan Di gruttola");
+        listDatos.add("Santiago Torres");
+        listDatos.add("Cader Lara");
+        listDatos.add("DI Paolo Massi");
+
+        RecyclerAdapter adapter = new RecyclerAdapter(listDatos);
+        recyclerManiana.setAdapter(adapter);
     }
 
     @Override
