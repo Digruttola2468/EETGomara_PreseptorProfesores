@@ -16,7 +16,9 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /*Funciones de esta clase
@@ -32,7 +34,6 @@ public class FireBaseServer {
 
     private static final String TAG = "FireBaseServer";
     private static FirebaseFirestore db = FirebaseFirestore.getInstance();
-    String nombre = "";
 
     public void ObtenerBaseDeDatos(String curso){
         db.collection("Cursos/" + curso +"/Alumnos")
@@ -97,6 +98,28 @@ public class FireBaseServer {
                 Log.d(TAG,"Error al crear el alumno",e);
             }
         });
+    }
+
+    public void obtenerTodosAlumnos(String curso){
+        List<AlumnoServerFireBase> alumnoServerFireBases = new ArrayList<>();
+
+        db.collection("Cursos/" + curso +"/Alumnos")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if(task.isSuccessful()){
+                            for(QueryDocumentSnapshot document : task.getResult()){
+                                String nombre = String.valueOf(document.getData().get("Nombre"));
+                                Float inasistencias = Float.parseFloat(String.valueOf(document.getData().get("Inasistencias")));
+                                Log.d(TAG, document.getId() + " => " + "Nombre: " + nombre + " Inasistencias: " + inasistencias);
+                                //alumnoServerFireBases.add(new AlumnoServerFireBase());
+                            }
+                        }else Log.w(TAG,"Error getting documents." , task.getException());
+
+                    }
+                });
+
     }
 
 }
