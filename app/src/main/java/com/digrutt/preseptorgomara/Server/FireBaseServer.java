@@ -100,26 +100,4 @@ public class FireBaseServer {
         });
     }
 
-    public void obtenerTodosAlumnos(String curso){
-        List<AlumnoServerFireBase> alumnoServerFireBases = new ArrayList<>();
-
-        db.collection("Cursos/" + curso +"/Alumnos")
-                .get()
-                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        if(task.isSuccessful()){
-                            for(QueryDocumentSnapshot document : task.getResult()){
-                                String nombre = String.valueOf(document.getData().get("Nombre"));
-                                Float inasistencias = Float.parseFloat(String.valueOf(document.getData().get("Inasistencias")));
-                                Log.d(TAG, document.getId() + " => " + "Nombre: " + nombre + " Inasistencias: " + inasistencias);
-                                //alumnoServerFireBases.add(new AlumnoServerFireBase());
-                            }
-                        }else Log.w(TAG,"Error getting documents." , task.getException());
-
-                    }
-                });
-
-    }
-
 }

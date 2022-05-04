@@ -24,6 +24,7 @@ public class activity_preseptor extends Activity implements AdapterView.OnItemSe
     private Spinner spCurso, spAnio;
 
     private RecyclerView recyclerManiana;
+    private RecyclerView recyclerTarde;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -34,6 +35,7 @@ public class activity_preseptor extends Activity implements AdapterView.OnItemSe
         spCurso = findViewById(R.id.sp_curso);
         spAnio = findViewById(R.id.sp_anio);
         recyclerManiana = findViewById(R.id.recyclerTurnoManiana);
+        recyclerTarde = findViewById(R.id.recyclerTurnoTarde);
 
         //Mostrar la lista de Cursos y años
         ArrayAdapter<CharSequence> adapterCurso = ArrayAdapter.createFromResource(this,
@@ -55,6 +57,7 @@ public class activity_preseptor extends Activity implements AdapterView.OnItemSe
 
 
         recyclerManiana.setLayoutManager(new LinearLayoutManager(this));
+        recyclerTarde.setLayoutManager(new LinearLayoutManager(this));
 
         ArrayList<String> listDatos = new ArrayList<>();
         listDatos.add("Ivan Di gruttola");
@@ -64,6 +67,7 @@ public class activity_preseptor extends Activity implements AdapterView.OnItemSe
 
         RecyclerAdapter adapter = new RecyclerAdapter(listDatos);
         recyclerManiana.setAdapter(adapter);
+        recyclerTarde.setAdapter(adapter);
     }
 
     @Override
