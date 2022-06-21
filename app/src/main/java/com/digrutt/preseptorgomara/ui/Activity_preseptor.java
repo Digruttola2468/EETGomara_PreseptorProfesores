@@ -19,7 +19,7 @@ import com.digrutt.preseptorgomara.Server.Alumno;
 
 import java.util.ArrayList;
 
-public class activity_preseptor extends Activity implements AdapterView.OnItemSelectedListener {
+public class Activity_preseptor extends Activity implements AdapterView.OnItemSelectedListener {
 
     private Button btGuardar;
     private Spinner spCurso, spAnio;
@@ -47,7 +47,7 @@ public class activity_preseptor extends Activity implements AdapterView.OnItemSe
         spCurso.setAdapter(adapterCurso);
 
         ArrayAdapter<CharSequence> adapterAnio = ArrayAdapter.createFromResource(this,
-                R.array.anio, android.R.layout.simple_spinner_item);
+                R.array.ANIO, android.R.layout.simple_spinner_item);
         adapterAnio.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spAnio.setAdapter(adapterAnio);
 
