@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:animateLayoutChanges="true"
+    android:background="@color/white"
+    app:cardElevation="4dp"
+    app:cardUseCompatPadding="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+
+        <TextView
+            android:id="@+id/txtNombre_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="12dp"
+            android:text="Ivan Di Gruttola"
+            android:layout_marginBottom="10dp"
+            android:textSize="20sp"/>
+
+        <Space
+            android:layout_width="20dp"
+            android:layout_height="match_parent"/>
+
+        <TextView
+            android:id="@+id/txtInasistencias_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="20dp"
+            android:text="20"
+            android:textSize="34sp" />
+        <Space
+            android:layout_width="20dp"
+            android:layout_height="match_parent"/>
+        <Button
+            android:id="@+id/btIncementar_item"
+            android:layout_width="40dp"
+            android:layout_height="48dp"
+            android:contentDescription="@string/app_name"
+            android:text="+" />
+        <Space
+            android:layout_width="20dp"
+            android:layout_height="match_parent"/>
+        <Button
+            android:id="@+id/btDecrementar_item"
+            android:layout_width="40dp"
+            android:layout_height="48dp"
+            android:contentDescription="@string/app_name"
+            android:text="-" />
+        <Space
+            android:layout_width="20dp"
+            android:layout_height="match_parent"/>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

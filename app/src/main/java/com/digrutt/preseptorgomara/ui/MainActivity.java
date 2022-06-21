@@ -3,6 +3,7 @@ package com.digrutt.preseptorgomara.ui;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -21,91 +22,25 @@ import com.google.firebase.firestore.FirebaseFirestoreException;
 
 public class MainActivity extends AppCompatActivity {
 
-    /*Este preseptor Gomara va a
-    *
-    * Agregar , Modificar , Leer y Eliminar Alumnos de Determinados Cursos
-    * Administrar las inasistencias que tiene cada Alumno
-    *
-    * */
-
-    private TextView nombre;
-    private TextView inasistencias;
-    private EditText DNI;
-    private EditText curso;
-    private Button botonBuscar;
+    private Button btInasistencias,btComunicados;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        nombre = findViewById(R.id.txt_nombre);
-        inasistencias = findViewById(R.id.txt_inasistencias);
-        DNI = findViewById(R.id.edit_dni);
-        curso = findViewById(R.id.edit_curso);
-        botonBuscar = findViewById(R.id.bt_buscar);
+        btInasistencias = findViewById(R.id.btInasistencias_main);
+        btComunicados = findViewById(R.id.btComunicados_main);
 
-        botonBuscar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String doc = DNI.getText().toString();
-                String cur = curso.getText().toString();
+        btInasistencias.setOnClickListener( (v) -> {
+            Intent i = new Intent(MainActivity.this,Activity_Inasistencias.class);
+            startActivity(i);
+        } );
 
-                obtenerNombre(doc,cur);
-                obtenerInasistencias(doc,cur);
-            }
+        btComunicados.setOnClickListener( (v) -> {
+            Intent i = new Intent(MainActivity.this,Activity_Comunicado.class);
+            startActivity(i);
         });
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
-        DocumentReference docRef = db.collection("cities").document("SF");
-        docRef.addSnapshotListener(new EventListener<DocumentSnapshot>() {
-            @Override
-            public void onEvent(@Nullable DocumentSnapshot snapshot,
-                                @Nullable FirebaseFirestoreException e) {
-                if (e != null) {
-                    Log.w("TAG", "Listen failed.", e);
-                    return;
-                }
 
-                if (snapshot != null && snapshot.exists()) {
-                    Log.d("TAG", "Current data: " + snapshot.getData());
-                } else {
-                    Log.d("TAG", "Current data: null");
-                }
-            }
-        });
     }
-
-    public void obtenerInasistencias(String id,String curso){
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
-        DocumentReference reference = db.collection("Cursos/" + curso + "/Alumnos").document(id);
-        reference.get()
-                .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-                    @Override
-                    public void onSuccess(DocumentSnapshot documentSnapshot) {
-                        if(documentSnapshot.exists())
-                            inasistencias.setText(documentSnapshot.getData().get("Inasistencias").toString());
-
-                        else
-                            Log.w("TAG","NO EXISTE EL DOCUMENTO");
-                    }
-                });
-    }
-
-    public void obtenerNombre(String id,String curso){
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
-        DocumentReference reference = db.collection("Cursos/" + curso + "/Alumnos").document(id);
-        reference.get()
-                .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-                    @Override
-                    public void onSuccess(DocumentSnapshot documentSnapshot) {
-                        if(documentSnapshot.exists())
-                            nombre.setText(documentSnapshot.getData().get("Nombre").toString());
-
-                        else
-                            Log.w("TAG","NO EXISTE EL DOCUMENTO");
-                    }
-                });
-        Log.d("TAG",nombre.getText().toString());
-    }
-
 }

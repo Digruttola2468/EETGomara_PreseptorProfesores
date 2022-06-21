@@ -3,6 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/ivans/AndroidProyectStudio/EETGomara_PreseptorProfesores/app/src/main/res/layout/activity_comunicado.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/ivans/AndroidProyectStudio/EETGomara_PreseptorProfesores/app/src/main/res/layout/activity_inasistencias.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/ivans/AndroidProyectStudio/EETGomara_PreseptorProfesores/app/src/main/res/layout/activity_main.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/ivans/AndroidProyectStudio/EETGomara_PreseptorProfesores/app/src/main/res/layout/activity_preseptor.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/ivans/AndroidProyectStudio/EETGomara_PreseptorProfesores/app/src/main/res/layout/adapter_recycler.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/ivans/AndroidProyectStudio/EETGomara_PreseptorProfesores/app/src/main/res/layout/dropdownitem.xml" value="0.1" />
+        <entry key="..\:/Users/ivans/AndroidProyectStudio/EETGomara_PreseptorProfesores/app/src/main/res/layout/recycler_inasistencias_item.xml" value="0.23495145631067962" />
         <entry key="..\:/Users/ivans/AppData/Local/Android/Sdk/platforms/android-31/data/res/layout/simple_spinner_item.xml" value="0.12868747327917915" />
         <entry key="..\:/Users/ivans/Desktop/Gomara/PreseptorGomara/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/ivans/Desktop/Gomara/PreseptorGomara/app/src/main/res/layout/activity_preseptor.xml" value="0.25" />
